@@ -2,8 +2,7 @@
 import React, { useState } from 'react';
 import debounce from 'lodash/debounce';
 import "../../../styles/review.css";
-import Header from "../../header.js";
-import Footer from "../../footer.js";
+import Header_admin from '@/app/header_admin';
 
 const Review = () => {
   const [showReviewModal, setShowReviewModal] = useState(false);
@@ -103,7 +102,7 @@ const Review = () => {
     <div className="flex justify-between items-start mb-3">
       <div className="flex items-center gap-3">
         <img
-          src={'image/user.png'}
+          src={'/image/user.png'}
           alt={`${review.author}'s avatar`}
           className="w-8 h-8 rounded-full"
           style={{ 
@@ -215,7 +214,7 @@ const Review = () => {
 
   return (
     <div className="min-h-screen font-['Poppins'] w-full bg-fixed bg-[length:2000px] bg-no-repeat bg-center max-h-[500vh]">
-      <Header />
+      <Header_admin />
       <div className="max-w-4xl mx-auto p-6 my-14 mt-[150px]">
         {/* Rating Summary Card */}
         <div className="bg-[#EBDFEF] rounded-[24px] p-8 mb-6">
@@ -265,7 +264,7 @@ const Review = () => {
             <div className="flex justify-between items-start mb-4">
               <div className="flex items-center gap-3">
                 <img
-                  src="image/user.png"
+                  src="/image/user.png"
                   alt={review.author}
                   className="w-10 h-10 rounded-full"
                 />
@@ -288,18 +287,8 @@ const Review = () => {
         ))}
       </div>
 
-      {/* Write review button */}
-      <button 
-        onClick={() => setShowReviewModal(true)}
-        className="fixed bottom-5 right-5 bg-[#F472B6] text-white px-6 py-2 rounded-full flex items-center gap-2 shadow-[0_10px_15px_-3px_rgba(0,0,0,0.1)] z-[1000]"
-      >
-        <span>✎</span>
-        Write a review
-      </button>
-
-      {showReviewModal && <ReviewModal />}
+      
     </div>
-    <Footer />
   </div>
 );
 }
